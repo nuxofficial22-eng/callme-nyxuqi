@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TINZZ MODE SOLO</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #00bfff 0%, blue 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+    }
+
+  .card {
+  background: rgba(20, 20, 20, 0.8);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    10px 10px 25px rgba(0, 0, 0, 0.8),
+    -8px -8px 20px rgba(255, 255, 255, 0.03),
+    0 0 25px rgba(0, 255, 255, 0.05);
+  backdrop-filter: blur(18px);
+  width: 450px;
+  padding: 40px;
+  padding-bottom: 120px; /* INI YANG KAMU TAMBAHKAN */
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  height: 690px;
+}
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -100px;
+      right: -80px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, black(0, 255, 255, 0.3), transparent 70%);
+      filter: blur(60px);
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+
+    .logo {
+      width: 130px; /* logo diperbesar */
+      height: 130px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 22px auto;
+      border: 2px solid blue(0, 255, 255, 0.4);
+      box-shadow: 0 0 20px blue(0, 255, 255, 0.2);
+      outline: 1px solid black; /* ✅ stroke tipis warna hitam */
+      outline-offset: 1px;
+    }
+
+    .logo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .name {
+      font-size: 1.6em;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-shadow: 0 0 10px blue(0, 255, 255, 0.6);
+    }
+
+    .verified-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+      filter: drop-shadow(0 0 5px #00bfff);
+    }
+
+    .role {
+  position: absolute;
+  bottom: 20px;      /* jarak dari bawah */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9em;
+  color: #aaa;
+}
+
+    .divider {
+      width: 60%;
+      height: 1px;
+      background: (0, 255, 255, 0.25);
+      margin: 18px auto;
+    }
+
+    .desc {
+  position: relative;
+  top: -25px;   /* sebelumnya -10px, sekarang lebih naik */
+  font-size: 1em;
+  color: #d9faff;
+  margin-top: 16px;
+  line-height: 1.6em;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  max-width: 270px;
+  height: 45px;
+  margin-top: 22px;
+  padding: 0 20px;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1em;
+  text-decoration: none;
+  transition: all 0.35s ease;
+  box-shadow:
+    inset 0 0 10px rgba(255, 255, 255, 0.1),
+    0 0 10px rgba(0, 255, 255, 0.1);
+  letter-spacing: 0.3px;
+
+  /* TAMBAHAN UNTUK NAIKKAN SEMUA TOMBOL */
+  position: relative;
+  top: -25px;
+}
+
+    .btn svg {
+      width: 24px;
+      height: 24px;
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    .whatsapp-btn {
+      background: linear-gradient(135deg, #00ff95, #00b76a);
+      box-shadow: 0 0 15px rgba(0, 255, 149, 0.3);
+    }
+
+    .whatsapp-btn:hover {
+      background: linear-gradient(135deg, #00ffaa, #00c882);
+      box-shadow: 0 0 30px rgba(0, 255, 149, 0.6);
+    }
+
+    .telegram-btn {
+      background: linear-gradient(135deg, #00bfff, #007acc);
+      box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+    }
+
+    .telegram-btn:hover {
+      background: linear-gradient(135deg, #33ccff, #0099ff);
+      box-shadow: 0 0 30px rgba(0, 191, 255, 0.6);
+    }
+
+    .tiktok-btn {
+      background: linear-gradient(135deg, black, #000);
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    }
+
+    .tiktok-btn:hover {
+      background: linear-gradient(135deg, #000, #1a1a1a);
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.1);
+    }
+
+    .youtube-btn {
+      background: linear-gradient(135deg, #ff0044, #cc0000);
+      box-shadow: 0 0 15px rgba(255, 0, 68, 0.3);
+    }
+
+    .youtube-btn:hover {
+      background: linear-gradient(135deg, #ff3366, #cc0022);
+      box-shadow: 0 0 30px rgba(255, 51, 102, 0.6);
+    }
+
+/* ================= LOADING SCREEN ================= */
+
+#loading-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #00bfff 0%, blue 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border: 6px solid rgba(255,255,255,0.2);
+  border-top: 6px solid #00ffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-text {
+  font-size: 1.2em;
+  letter-spacing: 2px;
+}
+
+.dots::after {
+  content: "";
+  animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+  0% { content: ""; }
+  33% { content: "."; }
+  66% { content: ".."; }
+  100% { content: "..."; }
+}
+
+/* ================= WELCOME SCREEN ================= */
+
+#welcome-screen {
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at top, #00bfff 0%, blue 100%);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* kiri */
+  padding-left: 35px;
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#typing-text {
+  font-size: 2.3em;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 0 15px rgba(0,255,255,0.6);
+}
+
+/* Dashboard animation modern */
+.card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.97);
+  filter: blur(10px);
+  transition:
+    opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+    @media print {
+      body {
+        background: black;
+        color: black;
+      }
+      .card {
+        background: none;
+        border: 1px solid #999;
+        box-shadow: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div id="loading-screen">
+  <div class="spinner"></div>
+  <div class="loading-text">
+    Loading<span class="dots"></span>
+  </div>
+</div>
+
+<!-- WELCOME SCREEN -->
+<div id="welcome-screen">
+  <h1 id="typing-text"></h1>
+</div>
+
+  <div class="card">
+    <div class="logo">
+      <img src="https://risrfgvolfxuavpsmfjn.supabase.co/storage/v1/object/public/uploads/1772646718197-66fxyd3j.jpg" alt="Logo" />
+    </div>
+
+    <div class="name">
+      Nukk
+      <svg class="verified-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title2">
+        <title id="title2">Verified</title>
+        <defs>
+          <radialGradient id="g" cx="35%" cy="25%" r="85%">
+            <stop offset="0%" stop-color="#5fd1ff"/>
+            <stop offset="60%" stop-color="#1DA1F2"/>
+            <stop offset="100%" stop-color="#1480c9"/>
+          </radialGradient>
+          <filter id="softShadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0a0a0a" flood-opacity="0.18"/>
+          </filter>
+        </defs>
+        <g filter="url(#softShadow)">
+          <circle cx="32" cy="32" r="30" fill="url(#g)"/>
+        </g>
+        <path d="M22.5 33.5l6 6 13.5-16" fill="none" stroke="#fff" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+
+    <div class="role">© Powered By NyXuQi</div>
+    <div class="divider"></div>
+    <p class="desc">
+      Hello, my name is Nukk, or my full name is Ibnu Rif'ah.
+You can find my social media links below. Feel free to contact me through any of them.
+    </p>
+
+    <a class="btn whatsapp-btn" href="https://wa.me/6281549304202" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+        <path fill="#fff" d="M16.001 3C9.373 3 4 8.373 4 15.001c0 2.648.773 5.095 2.104 7.164L4 29l7.041-2.071a11.94 11.94 0 004.96 1.072C22.629 28 28 22.628 28 16.001 28 9.373 22.629 3 16.001 3zm0 22.693a9.683 9.683 0 01-4.928-1.354l-.354-.21-4.178 1.23 1.239-4.076-.231-.366A9.68 9.68 0 016.32 15c0-5.35 4.332-9.68 9.68-9.68 5.35 0 9.68 4.33 9.68 9.68 0 5.349-4.33 9.693-9.68 9.693zm5.317-7.283c-.29-.145-1.717-.851-1.982-.948-.266-.099-.459-.145-.65.145-.19.29-.748.947-.917 1.139-.17.192-.338.217-.628.073-.29-.145-1.226-.451-2.335-1.437-.862-.769-1.442-1.719-1.612-2.009-.17-.289-.018-.445.128-.589.132-.132.29-.338.436-.507.145-.17.193-.289.29-.482.099-.192.049-.362-.025-.507-.073-.145-.65-1.566-.891-2.145-.234-.561-.471-.485-.65-.495l-.554-.01c-.192 0-.507.073-.774.362-.266.29-1.016.992-1.016 2.414s1.04 2.8 1.183 2.992c.145.193 2.044 3.12 4.949 4.378.692.298 1.231.476 1.65.61.693.22 1.323.189 1.821.115.556-.083 1.717-.7 1.96-1.377.242-.677.242-1.257.17-1.377-.073-.119-.266-.19-.556-.334z"/>
+      </svg>
+      WhatsApp
+    </a>
+
+    <a class="btn telegram-btn" href="https://t.me/NyXuQi" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+        <path fill="#fff" d="M120,0C53.7,0,0,53.7,0,120s53.7,120,120,120s120-53.7,120-120S186.3,0,120,0z M175.5,81.4
+        l-19.5,92c-1.5,6.5-5.3,8.1-10.8,5l-30-22.1l-14.5 14c-1.6 1.6-3 3-6.2 3l2.2-31.2l56.8-51.3c2.5-2.2-0.6-3.4-3.8-1.2L82,131.7
+        l-30-9.4c-6.5-2-6.6-6.5,1.4-9.7l117-45.1C175.1,65.3,178.4,68.9,175.5,81.4z"/>
+      </svg>
+      Telegram
+    </a>
+
+    <a class="btn tiktok-btn" href="https://www.tiktok.com/@nuk2008.07.29?_r=1&_t=ZS-94PjGJROgop" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+        <path fill="#25F4EE" d="M208 80a47.8 47.8 0 0 1-27.5-8.7v69.6a63.2 63.2 0 1 1-53.1-62.4v31.2a32 32 0 1 0 21.3 30.2V24h34.1a48 48 0 0 0 47.2 56Z"/>
+        <path fill="#FE2C55" d="M180.5 71.3A47.9 47.9 0 0 1 208 80v24a48 48 0 0 1-27.5-8.7v69.6a63.1 63.1 0 0 1-98.1 52.8 63.1 63.1 0 0 0 98.1-52.8Z"/>
+        <path fill="#fff" d="M180.5 71.3A47.8 47.8 0 0 0 153 24h-34.1v115.9a32 32 0 1 1-21.3-30.2V78.5a63.2 63.2 0 1 0 53.1 62.4V71.3Z"/>
+      </svg>
+      TikTok
+    </a>
+    
+    <a class="btn youtube-btn" href="https://whatsapp.com/channel/0029Vb6hL9pGufJ38JTojQ3e" target="_blank">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <path fill="#fff" d="M256 48C141.1 48 48 141.1 48 256s93.1 208 208 208 208-93.1 208-208S370.9 48 256 48zm0 80c39.8 0 72 32.2 72 72s-32.2 72-72 72-72-32.2-72-72 32.2-72 72-72zm0 288c-52.9 0-99.8-27.6-127.1-69.4 1-46.4 91-71.9 127.1-71.9 36.1 0 126.1 25.5 127.1 71.9C355.8 388.4 308.9 416 256 416z"/>
+      </svg>
+      Channel WhatsApp
+    </a>
+  </div>
+
+<script>
+  const loadingScreen = document.getElementById("loading-screen");
+  const welcomeScreen = document.getElementById("welcome-screen");
+  const typingText = document.getElementById("typing-text");
+  const dashboard = document.querySelector(".card");
+
+  const text = "It’s a pleasure to welcome you.";
+  let index = 0;
+
+  function typeEffect() {
+    if (index < text.length) {
+      typingText.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeEffect, 70);
+    } else {
+      setTimeout(() => {
+        welcomeScreen.style.opacity = "0";
+        setTimeout(() => {
+          welcomeScreen.style.display = "none";
+          dashboard.classList.add("show");
+        }, 800);
+      }, 1200);
+    }
+  }
+
+  // Loading 3 detik
+  setTimeout(() => {
+    loadingScreen.style.opacity = "0";
+    setTimeout(() => {
+      loadingScreen.style.display = "none";
+      welcomeScreen.style.opacity = "1";
+      welcomeScreen.style.pointerEvents = "auto";
+      typeEffect();
+    }, 800);
+  }, 3000);
+</script>
+
+</body>
+</html>
